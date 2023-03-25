@@ -3,8 +3,13 @@ from selenium.webdriver.support.ui import Select
 import pandas as pd
 import time
 
+import os
+from dotenv import load_dotenv  # for python-dotenv method
+load_dotenv()
+
+
 website = "https://www.adamchoi.co.uk/overs/detailed"
-path = "C:/Users/alper/AlperProjects/chromedriver_win32/chromedriver.exe"
+path = os.environ.get("DRIVER_PATH")
 driver = webdriver.Chrome(path)
 driver.get(website)
 

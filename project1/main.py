@@ -5,13 +5,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import pandas as pd
 import time
+import os
+from dotenv import load_dotenv  # for python-dotenv method
+load_dotenv()
 
 options = Options()
 options.headless = False
 # options.add_argument('window-size=1920x1080')
 
 web = "https://www.audible.com/adblbestsellers?ref=a_search_t1_navTop_pl0cg1c0r0&pf_rd_p=8a113f1a-dc38-418d-b671-3cca04245da5&pf_rd_r=B2S0T9ACNZNTS4BRF26A&pageLoadId=LGzChPKuzMRIStRw&creativeId=1642b4d1-12f3-4375-98fa-4938afc1cedc"
-path = "C:/Users/alper/AlperProjects/chromedriver_win32/chromedriver.exe"
+path = os.environ.get("DRIVER_PATH")
 driver = webdriver.Chrome(path)
 driver.get(web)
 driver.maximize_window()
